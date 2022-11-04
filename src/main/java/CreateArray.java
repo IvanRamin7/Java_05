@@ -56,7 +56,9 @@ public class CreateArray {
         int[] out = new int[arrayOfStrings.length];
 
         for (int i = 0; i < arrayOfStrings.length; i++) {
-            out[i] = Integer.parseInt(arrayOfStrings[i]);
+                if(arrayOfStrings[i].contains(".")) {
+                    out[i] = (int) Double.parseDouble(arrayOfStrings[i]);
+                } else out[i] = Integer.parseInt(arrayOfStrings[i]);
         }
         return out;
     }

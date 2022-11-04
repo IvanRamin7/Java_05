@@ -24,4 +24,14 @@ public class CreateArrayTest {
 
         Assert.assertEquals(actualResult, expectedResult);
     }
+
+    @Test
+    public void testCreateIntArrayFromText_HappyPathDoubles() {
+        String numbers = "53.9 64 10.84 1098.0 2";
+        int[] expectedResult = {53, 64, 10, 1098, 2};
+
+        int[] actualResult = new CreateArray().createIntArrayFromText(numbers);
+
+        Assert.assertEquals(actualResult, expectedResult);
+    }
 }

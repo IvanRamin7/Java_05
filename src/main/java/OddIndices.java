@@ -7,7 +7,7 @@ public class OddIndices {
      * Expected Result =  {590, 985, 68}
      **/
 
-    public int[] oddIndicies(int[] numbersArray) {
+    public int[] oddIndices(int[] numbersArray) {
         if (numbersArray != null) {
 
             int[] out = new int[numbersArray.length / 2];
@@ -16,7 +16,6 @@ public class OddIndices {
             for (int i = 1; i < numbersArray.length; i += 2) {
                 out[counter] = numbersArray[i];
                 counter++;
-
             }
 
             return out;

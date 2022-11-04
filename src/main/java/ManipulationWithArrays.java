@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ManipulationWithArrays {
     /**
      * Написать метод multiplуArrayByNumber(), который принимает на вход массив целых чисел и число int number.
@@ -29,7 +31,8 @@ public class ManipulationWithArrays {
     }
 
     /**
-     * Написать метод toIntArray(), который принимает на вход массив типа double[],  и возвращает массив типа int[] из тех же чисел
+     * Написать метод toIntArray(), который принимает на вход массив типа double[],  и возвращает массив типа int[] из
+     * тех же чисел.
      * Например, toIntArray({1.1, 2.5, 3.7, 4.0, 5.5}) -> {1, 2, 3, 4, 5}
      **/
 
@@ -91,5 +94,59 @@ public class ManipulationWithArrays {
         }
 
         return false;
+    }
+
+    /**
+     * В классе ManipulationsWithArrays написать метод getTheGreaterHalf(), который принимает массив целых чисел,
+     * и возвращает  массив из суммарно бОльшей первой или второй половины входящего массива
+     */
+
+    public int[] getTheGreaterHalf(int[] input) {
+        if (input == null) {
+
+            return new int[0];
+        } else if (input.length == 0 || input.length == 1) {
+
+            return input;
+        } else {
+            int firstHalf = 0;
+            int secondHalf = 0;
+            int firstIndex = 0;
+            int secondIndex = 0;
+
+            for (int i = 0; i < input.length / 2; i++) {
+                firstHalf += input[i];
+                firstIndex++;
+            }
+
+            for (int i = input.length / 2; i < input.length; i++) {
+                secondHalf += input[i];
+                secondIndex++;
+            }
+
+            if (firstHalf == secondHalf) {
+
+                return new int[0];
+            } else if (firstHalf > secondHalf) {
+
+                int[] output = new int[firstIndex];
+
+                for (int i = 0; i < input.length / 2; i++) {
+                    output[i] = input[i];
+                }
+
+                return output;
+            } else {
+                int[] output = new int[secondIndex];
+                secondIndex = 0;
+
+                for (int i = input.length / 2; i < input.length; i++) {
+                    output[secondIndex] = input[i];
+                    secondIndex++;
+                }
+
+                return output;
+            }
+        }
     }
 }
